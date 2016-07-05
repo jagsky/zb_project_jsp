@@ -1,4 +1,4 @@
-package com.cn.servlet;
+package com.zb.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2016/7/4.
+ * Created by Administrator on 2016/7/5.
  */
-@WebServlet(name = "LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "SeedServlet")
+public class SeedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
