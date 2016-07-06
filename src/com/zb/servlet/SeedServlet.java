@@ -18,11 +18,10 @@ public class SeedServlet extends HttpServlet {
         response.setContentType("text/xml");
         String json = readSeedJSONString(request);
 
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            response.getWriter().print("dasdasdas");
     }
 
     private String readSeedJSONString(HttpServletRequest request) {
