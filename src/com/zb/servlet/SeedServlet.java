@@ -1,5 +1,8 @@
 package com.zb.servlet;
 
+import com.google.gson.Gson;
+import com.zb.bean.SeedBean;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,22 +12,26 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2016/7/5.
+ * Created by Administrator on 2016/7/6.
  */
 @WebServlet(name = "SeedServlet")
 public class SeedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/xml");
-        String json = readSeedJSONString(request);
-
+        //1.获取json字符串
+        String json = readJSONString(request);
+        System.out.println(json);
+        //2.通过Gson将数据保存到实例对象中
+        Gson gson = new Gson();
+        SeedBean seedBean = new SeedBean();
+        seedBean = gson.fromJson(json, SeedBean.class);
+        System.out.println(seedBean.toString());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            response.getWriter().print("dasdasdas");
+
     }
 
-    private String readSeedJSONString(HttpServletRequest request) {
+    private String readJSONString(HttpServletRequest request) {
         StringBuffer json = new StringBuffer();
         String line = null;
         try {
