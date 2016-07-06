@@ -9,17 +9,14 @@ import java.sql.ResultSet;
  * Created by Administrator on 2016/7/5.
  */
 public class SqlDataUtil {
-    //编写一个静态块，目的是为了导入驱动类
-    static {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     //编写静态的方法，获得连接。
     public static Connection getConnection() {
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         Connection conn = null;
         try {
             conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "a275139314", "a6820483");
@@ -30,10 +27,10 @@ public class SqlDataUtil {
         return conn;
     }
 
-    public static void close(PreparedStatement pst, Connection conn) {
+    public static void close( Connection conn,PreparedStatement ps) {
         try {
-            if (pst != null) {
-                pst.close();
+            if (ps != null) {
+                ps.close();
             }
             if (conn != null) {
                 conn.close();
@@ -43,7 +40,7 @@ public class SqlDataUtil {
         }
 
     }
-    public static void close(ResultSet rs, PreparedStatement pst, Connection conn) {
+    public static void close(Connection conn, PreparedStatement pst, ResultSet rs) {
         try {
             if (rs != null) {
                 rs.close();

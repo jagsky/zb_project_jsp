@@ -42,12 +42,30 @@ public class RogueBean {
     public RogueBean() {
     }
 
+    public RogueBean(String userId, String beiZhu, String comeOutFather, String conmeOutMother, String dKNumber, String fertility, String framarName, String type, String impurties, String lineRatio, String lineWidth, String rowFather, String rowMothers, String time, int id) {
+        UserId = userId;
+        this.beiZhu = beiZhu;
+        this.comeOutFather = comeOutFather;
+        this.conmeOutMother = conmeOutMother;
+        this.dKNumber = dKNumber;
+        this.fertility = fertility;
+        this.framarName = framarName;
+        this.type = type;
+        this.impurties = impurties;
+        this.lineRatio = lineRatio;
+        this.lineWidth = lineWidth;
+        this.rowFather = rowFather;
+        this.rowMothers = rowMothers;
+        this.time = time;
+        this.id = id;
+    }
+
     public String getUserId() {
         return UserId;
     }
 
-    public void setUserId(String UserId) {
-        this.UserId = UserId;
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 
     public String getBeiZhu() {
@@ -74,11 +92,11 @@ public class RogueBean {
         this.conmeOutMother = conmeOutMother;
     }
 
-    public String getDKNumber() {
+    public String getdKNumber() {
         return dKNumber;
     }
 
-    public void setDKNumber(String dKNumber) {
+    public void setdKNumber(String dKNumber) {
         this.dKNumber = dKNumber;
     }
 
@@ -160,5 +178,26 @@ public class RogueBean {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "RogueBean{" +
+                "comeOutFather='" + comeOutFather + '\'' +
+                ", conmeOutMother='" + conmeOutMother + '\'' +
+                ", dKNumber='" + dKNumber + '\'' +
+                ", fertility='" + fertility + '\'' +
+                ", framarName='" + framarName + '\'' +
+                ", type='" + type + '\'' +
+                ", impurties='" + impurties + '\'' +
+                ", lineRatio='" + lineRatio + '\'' +
+                ", lineWidth='" + lineWidth + '\'' +
+                ", rowFather='" + rowFather + '\'' +
+                ", rowMothers='" + rowMothers + '\'' +
+                ", time='" + time + '\'' +
+                ", id=" + id +
+                ", beiZhu='" + beiZhu + '\'' +
+                ", UserId='" + UserId + '\'' +
+                '}';
     }
 }
