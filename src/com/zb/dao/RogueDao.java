@@ -20,12 +20,13 @@ public class RogueDao {
         ps.setString(1, DKnumber);
         ResultSet rs = ps.executeQuery();
         boolean s = rs.next();
+        SqlDataUtil.close(conn, ps, rs);
         return s;
     }
 
     //插入一行数据
     //如果返回的是false表示无此数据，则添加数据
-    public boolean inertData(RogueBean rogue) throws SQLException {
+    public boolean insertRogue(RogueBean rogue) throws SQLException {
         // insert into table1(field1,field2) values(value1,value2)
         Connection conn = SqlDataUtil.getConnection();
         //(USER_ID,FARMERNAME,DKNUMBER,TYPES,ROGUE_TIME,ROGUE_ROWFATHER,ROGUE_ROWMOTHERS,ROGUE_LINEWIDTH," +

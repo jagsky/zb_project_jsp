@@ -36,6 +36,20 @@ public class SeedBean {
     public SeedBean() {
     }
 
+    public SeedBean(String beizhu, String dKNumber, String father1, String father2, String fatherUse, String framarName, String mother, String motherUse, String seedDate, String userId, String type) {
+        this.beizhu = beizhu;
+        this.dKNumber = dKNumber;
+        this.father1 = father1;
+        this.father2 = father2;
+        this.fatherUse = fatherUse;
+        this.framarName = framarName;
+        this.mother = mother;
+        this.motherUse = motherUse;
+        this.seedDate = seedDate;
+        this.userId = userId;
+        this.type = type;
+    }
+
     public SeedBean(String beizhu, String dKNumber, String father1, String father2, String fatherUse, String framarName, String mother, String motherUse, String seedDate, String userId, String type, int seed_id) {
         this.beizhu = beizhu;
         this.dKNumber = dKNumber;

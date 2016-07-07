@@ -19,6 +19,7 @@ public class FarmerDao {
         ps.setString(1, DKnumber);
         ResultSet rs = ps.executeQuery();
         boolean s = rs.next();
+        SqlDataUtil.close(conn, ps, rs);
         return s;
     }
 }

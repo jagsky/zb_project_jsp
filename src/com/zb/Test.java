@@ -1,7 +1,11 @@
 package com.zb;
 
-import com.zb.bean.RogueBean;
-import com.zb.dao.RogueDao;
+import com.zb.bean.CastrationBean;
+import com.zb.bean.GainBean;
+import com.zb.bean.SeedBean;
+import com.zb.dao.CastrationDao;
+import com.zb.dao.GainDao;
+import com.zb.dao.SeedDao;
 
 import java.sql.SQLException;
 
@@ -10,13 +14,10 @@ import java.sql.SQLException;
  */
 public class Test {
     public static void main(String[] args) throws SQLException {
-
-        RogueDao rogueDao = new RogueDao();
-        RogueBean rogueBean = new RogueBean("userid", "备注", "出苗父", "出苗母", "地块号",
-                "可育株率调查", "农户行吗", "种类", "杂铸铝", "行比",
-                "行距", "株距父", "株距母", "去杂开始时间", 1);
-        boolean b = rogueDao.inertData(rogueBean);
-        System.out.println(b);
+        SeedBean seedBean = new SeedBean("备注", "sss", "父亲1", "父亲2", "发本情况", "农户姓名", "ss", "sss", "aaa", "a", "d");
+        SeedDao seedDao = new SeedDao();
+        int i = seedDao.updateSeed(seedBean);
+        System.out.println(i);
 
     }
 

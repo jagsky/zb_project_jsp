@@ -35,6 +35,41 @@ public class CastrationBean {
     private String startTime;
     private int id;
 
+    public CastrationBean() {
+    }
+
+    public CastrationBean(String userId, String content, String dKNumber, String fatherLoose, String framarName, String type, String inspectTime, String motherExtract, String motherExtractTime, String motherLoose, String motherNoCastration, String startTime) {
+        UserId = userId;
+        this.content = content;
+        this.dKNumber = dKNumber;
+        this.fatherLoose = fatherLoose;
+        this.framarName = framarName;
+        this.type = type;
+        this.inspectTime = inspectTime;
+        this.motherExtract = motherExtract;
+        this.motherExtractTime = motherExtractTime;
+        this.motherLoose = motherLoose;
+        this.motherNoCastration = motherNoCastration;
+        this.startTime = startTime;
+    }
+
+    public CastrationBean(String userId, String content, String dKNumber, String fatherLoose, String framarName, String type, String inspectTime, String motherExtract, String motherExtractTime, String motherLoose, String motherNoCastration, String startTime, int id) {
+        UserId = userId;
+
+        this.content = content;
+        this.dKNumber = dKNumber;
+        this.fatherLoose = fatherLoose;
+        this.framarName = framarName;
+        this.type = type;
+        this.inspectTime = inspectTime;
+        this.motherExtract = motherExtract;
+        this.motherExtractTime = motherExtractTime;
+        this.motherLoose = motherLoose;
+        this.motherNoCastration = motherNoCastration;
+        this.startTime = startTime;
+        this.id = id;
+    }
+
     public String getUserId() {
         return UserId;
     }

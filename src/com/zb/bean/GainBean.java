@@ -19,7 +19,7 @@ public class GainBean {
      * thousand :
      * id : 21
      */
-
+    private String beizhu;
     private String UserId;
     private String dKNumber;
     private String fatherExciseStart;
@@ -32,6 +32,48 @@ public class GainBean {
     private String singlePlant;
     private String thousand;
     private int id;
+
+    public GainBean() {
+    }
+
+    public GainBean(String beizhu, String userId, String dKNumber, String fatherExciseStart, String fatherExciseStop, String framarName, String gainOutput, String gainTime, String type, String motherNO, String singlePlant, String thousand) {
+        this.beizhu = beizhu;
+        UserId = userId;
+        this.dKNumber = dKNumber;
+        this.fatherExciseStart = fatherExciseStart;
+        this.fatherExciseStop = fatherExciseStop;
+        this.framarName = framarName;
+        this.gainOutput = gainOutput;
+        this.gainTime = gainTime;
+        this.type = type;
+        this.motherNO = motherNO;
+        this.singlePlant = singlePlant;
+        this.thousand = thousand;
+    }
+
+    public GainBean(String beizhu, String userId, String dKNumber, String fatherExciseStart, String fatherExciseStop, String framarName, String gainOutput, String gainTime, String type, String motherNO, String singlePlant, String thousand, int id) {
+        this.beizhu = beizhu;
+        UserId = userId;
+        this.dKNumber = dKNumber;
+        this.fatherExciseStart = fatherExciseStart;
+        this.fatherExciseStop = fatherExciseStop;
+        this.framarName = framarName;
+        this.gainOutput = gainOutput;
+        this.gainTime = gainTime;
+        this.type = type;
+        this.motherNO = motherNO;
+        this.singlePlant = singlePlant;
+        this.thousand = thousand;
+        this.id = id;
+    }
+
+    public String getBeizhu() {
+        return beizhu;
+    }
+
+    public void setBeizhu(String beizhu) {
+        this.beizhu = beizhu;
+    }
 
     public String getUserId() {
         return UserId;
@@ -127,5 +169,24 @@ public class GainBean {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "GainBean{" +
+                "beizhu='" + beizhu + '\'' +
+                ", UserId='" + UserId + '\'' +
+                ", dKNumber='" + dKNumber + '\'' +
+                ", fatherExciseStart='" + fatherExciseStart + '\'' +
+                ", fatherExciseStop='" + fatherExciseStop + '\'' +
+                ", framarName='" + framarName + '\'' +
+                ", gainOutput='" + gainOutput + '\'' +
+                ", gainTime='" + gainTime + '\'' +
+                ", type='" + type + '\'' +
+                ", motherNO='" + motherNO + '\'' +
+                ", singlePlant='" + singlePlant + '\'' +
+                ", thousand='" + thousand + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
