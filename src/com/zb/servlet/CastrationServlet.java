@@ -17,7 +17,9 @@ import java.io.IOException;
 @WebServlet(name = "CastrationServlet")
 public class CastrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//1.获取json字符串
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/xml");
+        //1.获取json字符串
         String json = readJSONString(request);
         System.out.println(json);
         //2.通过Gson将数据保存到实例对象中

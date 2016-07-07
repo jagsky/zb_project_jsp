@@ -44,4 +44,24 @@ public class CastrationDao {
         SqlDataUtil.close(conn, ps);
         return s;
     }
+
+    public int updateCastration(CastrationBean castration) throws SQLException {
+        Connection conn = SqlDataUtil.getConnection();
+        //update table1 set field1=value1 where 范围
+        String sql = "UPDATE CASTRATION SET CASTRATION_STARTTIME=?,CASTRATION_MOTHEREXTRACTTIME=?,CASTRATION_INSPECTTIME=?,CASTRATION_MOTHERNOCASTRATION=?," +
+                "CASTRATION_MOTHEREXTRACT=?,CASTRATION_MOTHERLOOSE=?,CASTRATION_FATHERLOOSE=?,CASTRATION_BEIZHU=?, WHERE DKNUMBER=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, castration.getStartTime());
+        ps.setString(2, castration.getMotherExtractTime());
+        ps.setString(3, castration.getInspectTime());
+        ps.setString(4, castration.getMotherNoCastration());
+        ps.setString(5, castration.getMotherExtract());
+        ps.setString(6, castration.getMotherLoose());
+        ps.setString(7, castration.getFatherLoose());
+        ps.setString(8, castration.getContent());
+        ps.setString(9, castration.getDKNumber());
+        int i = ps.executeUpdate();
+        SqlDataUtil.close(conn, ps);
+        return i;
+    }
 }

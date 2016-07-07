@@ -17,6 +17,8 @@ import java.io.IOException;
 @WebServlet(name = "RogueServlet")
 public class RogueServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/xml");
         //1.获取json字符串
         String json = readJSONString(request);
         System.out.println(json);
@@ -44,4 +46,6 @@ public class RogueServlet extends HttpServlet {
         }
         return json.toString();
     }
+
+
 }

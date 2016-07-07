@@ -46,14 +46,17 @@ public class SeedDao {
     public int updateSeed(SeedBean seed) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
         //update table1 set field1=value1 where 范围
-        String sql = "UPDATE SEED SET USER_ID=?,FARMERNAME=?,DKNUMBER=?,TYPES=?,SEED_TIME=? WHERE DKNUMBER=?";
+        String sql = "UPDATE SEED SET SEED_TIME=?,SEED_FATHER1=?,SEED_FATHER2=?,SEED_MOTHER=?," +
+                "SEED_FATHERUSE=?,SEED_MOTHERUSE=?,SEED_BEUZHU=? WHERE DKNUMBER=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, seed.getUserId());
-        ps.setString(2, seed.getFramarName());
-        ps.setString(3, seed.getDKNumber());
-        ps.setString(4, seed.getType());
-        ps.setString(5, seed.getSeedDate());
-        ps.setString(6, seed.getDKNumber());
+        ps.setString(1, seed.getSeedDate());
+        ps.setString(2, seed.getFather1());
+        ps.setString(3, seed.getFather2());
+        ps.setString(4, seed.getMother());
+        ps.setString(5, seed.getFatherUse());
+        ps.setString(6, seed.getMotherUse());
+        ps.setString(7, seed.getBeizhu());
+        ps.setString(8, seed.getDKNumber());
         int i = ps.executeUpdate();
         SqlDataUtil.close(conn, ps);
         return i;

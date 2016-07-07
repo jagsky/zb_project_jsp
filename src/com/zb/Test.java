@@ -1,10 +1,6 @@
 package com.zb;
 
-import com.zb.bean.CastrationBean;
-import com.zb.bean.GainBean;
 import com.zb.bean.SeedBean;
-import com.zb.dao.CastrationDao;
-import com.zb.dao.GainDao;
 import com.zb.dao.SeedDao;
 
 import java.sql.SQLException;
