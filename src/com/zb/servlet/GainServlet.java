@@ -2,6 +2,7 @@ package com.zb.servlet;
 
 import com.google.gson.Gson;
 import com.zb.bean.GainBean;
+import com.zb.dao.GainDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by Administrator on 2016/7/5.
@@ -26,7 +28,19 @@ public class GainServlet extends HttpServlet {
         Gson gson = new Gson();
         GainBean gainBean = new GainBean();
         gainBean = gson.fromJson(json, GainBean.class);
-        System.out.println(gainBean.toString());
+        GainDao gainDao = new GainDao();
+        try {
+            boolean isOk = gainDao.queryDK(gainBean.getDKNumber());
+            if (isOk) {
+                int i = gainDao.updateGain(gainBean);
+                System.out.println(i);
+            } else {
+                boolean s = gainDao.insertGain(gainBean);
+                System.out.println(s);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

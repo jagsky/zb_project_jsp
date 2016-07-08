@@ -49,7 +49,7 @@ public class CastrationDao {
         Connection conn = SqlDataUtil.getConnection();
         //update table1 set field1=value1 where 范围
         String sql = "UPDATE CASTRATION SET CASTRATION_STARTTIME=?,CASTRATION_MOTHEREXTRACTTIME=?,CASTRATION_INSPECTTIME=?,CASTRATION_MOTHERNOCASTRATION=?," +
-                "CASTRATION_MOTHEREXTRACT=?,CASTRATION_MOTHERLOOSE=?,CASTRATION_FATHERLOOSE=?,CASTRATION_BEIZHU=?, WHERE DKNUMBER=?";
+                "CASTRATION_MOTHEREXTRACT=?,CASTRATION_MOTHERLOOSE=?,CASTRATION_FATHERLOOSE=?,CASTRATION_BEIZHU=? WHERE DKNUMBER=?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, castration.getStartTime());
         ps.setString(2, castration.getMotherExtractTime());

@@ -2,6 +2,7 @@ package com.zb.servlet;
 
 import com.google.gson.Gson;
 import com.zb.bean.CastrationBean;
+import com.zb.dao.CastrationDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by Administrator on 2016/7/5.
@@ -26,7 +28,19 @@ public class CastrationServlet extends HttpServlet {
         Gson gson = new Gson();
         CastrationBean castrationBean = new CastrationBean();
         castrationBean = gson.fromJson(json, CastrationBean.class);
-        System.out.println(castrationBean.toString());
+        CastrationDao castrationDao = new CastrationDao();
+        try {
+            boolean isOk = castrationDao.queryDK(castrationBean.getDKNumber());
+            if (isOk) {
+                int i = castrationDao.updateCastration(castrationBean);
+                System.out.println(i);
+            } else {
+                boolean s = castrationDao.insertCastration(castrationBean);
+                System.out.println(s);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

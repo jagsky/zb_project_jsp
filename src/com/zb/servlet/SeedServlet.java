@@ -35,8 +35,10 @@ public class SeedServlet extends HttpServlet {
             if (isOK) {
                 //如果返回true，表示有这一行数据，则执行更新、
                 int i = seedDao.updateSeed(seedBean);
+                System.out.println(i);
             } else {
                 Boolean s = seedDao.insertSeed(seedBean);
+                System.out.println(s);
             }
         } catch (SQLException e) {
             e.printStackTrace();

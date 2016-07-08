@@ -49,7 +49,7 @@ public class GainDao {
         Connection conn = SqlDataUtil.getConnection();
         //update table1 set field1=value1 where 范围
         String sql = "UPDATE GAIN SET GAIN_MOTHERNO=?,GIAN_SINGLEPLANT=?,GAIN_THOUSAND=?,GAIN_FATHEREXCISESTART=?," +
-                "GAIN_FATHEREXCISESTOP=?,GAIN_GAINTIME=?,GAIN_GAINOUTPUT=?,GAIN_BEIZHU=?, WHERE DKNUMBER=?";
+                "GAIN_FATHEREXCISESTOP=?,GAIN_GAINTIME=?,GAIN_GAINOUTPUT=?,GAIN_BEIZHU=? WHERE DKNUMBER=?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, gain.getMotherNO());
         ps.setString(2, gain.getSinglePlant());

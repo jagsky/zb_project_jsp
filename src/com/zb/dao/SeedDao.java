@@ -34,7 +34,7 @@ public class SeedDao {
                 "SEED_FATHERUSE,SEED_MOTHERUSE,SEED_BEUZHU) VALUES ('" +
                 seed.getUserId() + "','" + seed.getFramarName() + "','" + seed.getDKNumber() + "','" + seed.getType() + "','"
                 + seed.getSeedDate() + "','" + seed.getFather1() + "','" + seed.getFather2() + "','" + seed.getMother() + "','"
-                + seed.getFatherUse() + "','" + seed.getMotherUse() + "','" + "')";
+                + seed.getFatherUse() + "','" + seed.getMotherUse() + "','" + seed.getBeizhu() + "')";
         PreparedStatement ps = conn.prepareStatement(sql);
         boolean s = ps.execute();
         //关闭数据库链接
