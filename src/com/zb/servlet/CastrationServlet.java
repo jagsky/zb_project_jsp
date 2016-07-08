@@ -44,7 +44,7 @@ public class CastrationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.getWriter().print("xxxxoooo");
     }
 
     private String readJSONString(HttpServletRequest request) {
