@@ -17,12 +17,14 @@ public class RegisterServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/xml");
 
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-    private String readJSONString(HttpServletRequest request) {
+  /*  private String readJSONString(HttpServletRequest request) {
         StringBuffer json = new StringBuffer();
         String line = null;
         try {
@@ -34,5 +36,5 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(e.toString());
         }
         return json.toString();
-    }
+    }*/
 }

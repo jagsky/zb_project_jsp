@@ -42,7 +42,7 @@ public class SeedDao {
         return s;
     }
 
-    //如果返回的是true表示有数据。执行更新 如果返回1表示没有这一行，所以不成功，如果返回1则表示成功
+    //如果返回的是true表示有数据。执行更新 如果返回0表示没有这一行，所以不成功，如果返回1则表示成功
     public int updateSeed(SeedBean seed) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
         //update table1 set field1=value1 where 范围
