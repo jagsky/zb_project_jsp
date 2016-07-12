@@ -19,7 +19,7 @@ public class SqlDataUtil {
         }
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "a275139314", "a6820483");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.100:1521:orcl", "a275139314", "a6820483");
         } catch (Exception e) {
             e.printStackTrace();
         }

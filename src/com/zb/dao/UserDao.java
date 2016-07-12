@@ -14,7 +14,7 @@ public class UserDao {
     //查询身份证是否存在
     public boolean queryIdCard(String idCard) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "SECTION USER_IDCARD FROM USER_IDCARD=?";
+        String sql = "SELECT USER_IDCARD FROM TECHNICIAN WHERE USER_IDCARD=?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, idCard);
         ResultSet rs = ps.executeQuery();
@@ -27,7 +27,7 @@ public class UserDao {
     //如何还没有生成账号，则返回1表示注册成功，反正返回0
     public boolean queryUserId(String userId) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "SECTION userId FROM userId=?";
+        String sql = "SELECT  USER_ID FROM TECHNICIAN WHERE USER_ID=?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, userId);
         ResultSet rs = ps.executeQuery();
@@ -36,7 +36,7 @@ public class UserDao {
         return s;
     }
 
-    //如果没有数据，则更新这一行数据数据
+    //如果没有数据，则更新这一行数据数据，添加用户 密码
     public int insertUserIdAndPassword(String userId, String password, String idCard) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
         //update table1 set field1=value1 where 范围

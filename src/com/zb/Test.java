@@ -1,7 +1,7 @@
 package com.zb;
 
-import com.zb.bean.SeedBean;
-import com.zb.dao.SeedDao;
+import com.zb.bean.FarmerBean;
+import com.zb.dao.FarmerDao;
 
 import java.sql.SQLException;
 
@@ -10,10 +10,12 @@ import java.sql.SQLException;
  */
 public class Test {
     public static void main(String[] args) throws SQLException {
-        SeedBean seedBean = new SeedBean("这是我新添加的", "16JZYXX0xxx", "父亲1", "父亲2", "发本情况", "农户姓名", "ss", "sss", "aaa", "a", "d");
-        SeedDao seedDao = new SeedDao();
-        int i = seedDao.updateSeed(seedBean);
-        System.out.println(i);
+        for (int i = 0; i < 5; i++) {
+            FarmerBean farmerBean = new FarmerBean("430421199208245758", "常米", "16CYL0100" + i, "玉米", "甘肃", "18173470825", "43042111111", "sss", "sddd", "ddd", "zzz", "xxx", "ccc");
+            FarmerDao farmerDao = new FarmerDao();
+            farmerDao.insertFarmer(farmerBean, farmerBean.getUserIdCard());
+        }
+
 
     }
 
