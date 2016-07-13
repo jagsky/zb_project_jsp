@@ -2,6 +2,7 @@ package com.zb.dao;
 
 import com.zb.bean.FarmerBean;
 import com.zb.sql.SqlDataUtil;
+import sun.java2d.pipe.SpanIterator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,18 +16,27 @@ import java.util.List;
  */
 public class FarmerDao {
     //通过UserID查询，返回农户的基本信息
-    public List queryDK(String userId) throws SQLException {
+    public List<FarmerBean> queryDK(String userIdCard) throws SQLException {
         List<FarmerBean> list = new ArrayList<FarmerBean>();
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "select * from Farmer where USER_ID =?";
+        String sql = "select * from Farmer where USER_IDCARD =?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, userId);
+        ps.setString(1, userIdCard);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             FarmerBean farmerBean = new FarmerBean();
-            farmerBean.setFarmerName(rs.getString(1));
-            farmerBean.setDKnumber(rs.getString(2));
-            farmerBean.setType(rs.getString(3));
+            farmerBean.setFarmerName(rs.getString(2));
+            farmerBean.setDKnumber(rs.getString(3));
+            farmerBean.setType(rs.getString(4));
+            farmerBean.setBaseName(rs.getString(5));
+            farmerBean.setHouse(rs.getString(6));
+            farmerBean.setIdcard(rs.getString(7));
+            farmerBean.setTemperature(rs.getString(8));
+            farmerBean.setFarmer_voyages(rs.getString(9));
+            farmerBean.setFarmer_manure(rs.getString(10));
+            farmerBean.setFarmer_troopsname(rs.getString(11));
+            farmerBean.setFarmer_yield(rs.getString(12));
+            farmerBean.setFarmer_area(rs.getString(13));
             list.add(farmerBean);
         }
 

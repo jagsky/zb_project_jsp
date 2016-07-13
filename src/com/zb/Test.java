@@ -1,7 +1,6 @@
 package com.zb;
 
-import com.zb.bean.FarmerBean;
-import com.zb.dao.FarmerDao;
+import com.zb.dao.UserDao;
 
 import java.sql.SQLException;
 
@@ -10,12 +9,9 @@ import java.sql.SQLException;
  */
 public class Test {
     public static void main(String[] args) throws SQLException {
-        for (int i = 0; i < 5; i++) {
-            FarmerBean farmerBean = new FarmerBean("430421199208245758", "常米", "16CYL0100" + i, "玉米", "甘肃", "18173470825", "43042111111", "sss", "sddd", "ddd", "zzz", "xxx", "ccc");
-            FarmerDao farmerDao = new FarmerDao();
-            farmerDao.insertFarmer(farmerBean, farmerBean.getUserIdCard());
-        }
-
+        UserDao userDao = new UserDao();
+        String s = userDao.idQueryidCard("ssss");
+        System.out.println(s);
 
     }
 

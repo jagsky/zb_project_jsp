@@ -23,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String idCard = request.getParameter("idCard");
+        System.out.println(idCard);
         UserDao userDao = new UserDao();
         try {
 

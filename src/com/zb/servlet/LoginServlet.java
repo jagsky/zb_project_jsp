@@ -16,6 +16,10 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/xml");
+        String register_userName = request.getParameter("userName");
+        String register_password = request.getParameter("password");
+        System.out.println(register_password);
+        response.getWriter().print("1");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

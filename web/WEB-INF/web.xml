@@ -54,4 +54,22 @@
         <url-pattern>/gain.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>farmer</servlet-name>
+        <servlet-class>com.zb.servlet.FarmerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>farmer</servlet-name>
+        <url-pattern>/farmer.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginFarmer</servlet-name>
+        <servlet-class>com.zb.servlet.LoginFarmerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginFarmer</servlet-name>
+        <url-pattern>/loginFarmer.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>
