@@ -5,8 +5,8 @@ package com.zb.bean;
  */
 public class FarmerBean {
     private String userIdCard;
-    private String FarmerName;
-    private String DKnumber;
+    private String farmerName;
+    private String dKnumber;
     private String type;
     private String baseName;
     private String house;
@@ -21,10 +21,10 @@ public class FarmerBean {
     public FarmerBean() {
     }
 
-    public FarmerBean(String userIdCard, String farmerName, String DKnumber, String type, String baseName, String house, String idcard, String temperature, String farmer_voyages, String farmer_manure, String farmer_troopsname, String farmer_yield, String farmer_area) {
+    public FarmerBean(String userIdCard, String farmerName, String dKnumber, String type, String baseName, String house, String idcard, String temperature, String farmer_voyages, String farmer_manure, String farmer_troopsname, String farmer_yield, String farmer_area) {
         this.userIdCard = userIdCard;
-        FarmerName = farmerName;
-        this.DKnumber = DKnumber;
+        this.farmerName = farmerName;
+        this.dKnumber = dKnumber;
         this.type = type;
         this.baseName = baseName;
         this.house = house;
@@ -45,21 +45,6 @@ public class FarmerBean {
         this.userIdCard = userIdCard;
     }
 
-    public String getFarmerName() {
-        return FarmerName;
-    }
-
-    public void setFarmerName(String farmerName) {
-        FarmerName = farmerName;
-    }
-
-    public String getDKnumber() {
-        return DKnumber;
-    }
-
-    public void setDKnumber(String DKnumber) {
-        this.DKnumber = DKnumber;
-    }
 
     public String getType() {
         return type;
@@ -141,12 +126,28 @@ public class FarmerBean {
         this.farmer_area = farmer_area;
     }
 
+    public String getFarmerName() {
+        return farmerName;
+    }
+
+    public void setFarmerName(String farmerName) {
+        this.farmerName = farmerName;
+    }
+
+    public String getdKnumber() {
+        return dKnumber;
+    }
+
+    public void setdKnumber(String dKnumber) {
+        this.dKnumber = dKnumber;
+    }
+
     @Override
     public String toString() {
         return "FarmerBean{" +
                 "userIdCard='" + userIdCard + '\'' +
-                ", FarmerName='" + FarmerName + '\'' +
-                ", DKnumber='" + DKnumber + '\'' +
+                ", FarmerName='" + farmerName + '\'' +
+                ", DKnumber='" + dKnumber + '\'' +
                 ", type='" + type + '\'' +
                 ", baseName='" + baseName + '\'' +
                 ", house='" + house + '\'' +

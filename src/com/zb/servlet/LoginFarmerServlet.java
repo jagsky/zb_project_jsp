@@ -23,6 +23,7 @@ public class LoginFarmerServlet extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         String userName = request.getParameter("userName");
+        System.out.println("登入请求收到的数据：" + userName);
         String userIdcard;
         Gson gson = new Gson();
         FarmerDao farmerDao = new FarmerDao();
@@ -33,6 +34,7 @@ public class LoginFarmerServlet extends HttpServlet {
             List<FarmerBean> list = farmerDao.queryDK(userIdcard);
             String jsonStr = gson.toJson(list);
             response.getWriter().print(jsonStr);
+            System.out.println(jsonStr);
         } catch (SQLException e) {
             e.printStackTrace();
 

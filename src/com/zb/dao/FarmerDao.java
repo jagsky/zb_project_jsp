@@ -26,7 +26,7 @@ public class FarmerDao {
         while (rs.next()) {
             FarmerBean farmerBean = new FarmerBean();
             farmerBean.setFarmerName(rs.getString(2));
-            farmerBean.setDKnumber(rs.getString(3));
+            farmerBean.setdKnumber(rs.getString(3));
             farmerBean.setType(rs.getString(4));
             farmerBean.setBaseName(rs.getString(5));
             farmerBean.setHouse(rs.getString(6));
@@ -54,7 +54,7 @@ public class FarmerDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, userIdCard);
             ps.setString(2, farmerBean.getFarmerName());
-            ps.setString(3, farmerBean.getDKnumber());
+            ps.setString(3, farmerBean.getdKnumber());
             ps.setString(4, farmerBean.getType());
             ps.setString(5, farmerBean.getBaseName());
             ps.setString(6, farmerBean.getHouse());
