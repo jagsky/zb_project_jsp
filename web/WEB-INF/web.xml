@@ -72,4 +72,13 @@
         <url-pattern>/loginFarmer.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>technician</servlet-name>
+        <servlet-class>com.zb.servlet.TechnicianServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>technician</servlet-name>
+        <url-pattern>/technician.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>
