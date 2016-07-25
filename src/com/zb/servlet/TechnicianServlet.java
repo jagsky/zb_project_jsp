@@ -1,5 +1,6 @@
 package com.zb.servlet;
 
+import com.google.gson.Gson;
 import com.zb.dao.TechnicianDao;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,9 @@ public class TechnicianServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         TechnicianDao technicianDao = new TechnicianDao();
         try {
-            response.getWriter().print(technicianDao.queryTechnicianName());
+            Gson gson = new Gson();
+            String jsonStr = gson.toJson(technicianDao.queryTechnicianName());
+            response.getWriter().print(jsonStr);
         } catch (SQLException e) {
             e.printStackTrace();
         }
