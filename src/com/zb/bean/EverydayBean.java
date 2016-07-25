@@ -4,25 +4,25 @@ package com.zb.bean;
  * Created by Administrator on 2016/7/25.
  */
 public class EverydayBean {
-    private String Userid;
+    private String userName;
     private String time;
     private String content;
 
     public EverydayBean() {
     }
 
-    public EverydayBean(String userid, String time, String content) {
-        Userid = userid;
+    public EverydayBean(String userName, String time, String content) {
+        this.userName = userName;
         this.time = time;
         this.content = content;
     }
 
-    public String getUserid() {
-        return Userid;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserid(String userid) {
-        Userid = userid;
+    public void setUserName(String userid) {
+        userName = userid;
     }
 
     public String getTime() {
