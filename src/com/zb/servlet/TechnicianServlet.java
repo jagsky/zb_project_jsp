@@ -23,6 +23,7 @@ public class TechnicianServlet extends HttpServlet {
         try {
             Gson gson = new Gson();
             String jsonStr = gson.toJson(technicianDao.queryTechnicianName());
+            System.out.println(jsonStr);
             response.getWriter().print(jsonStr);
         } catch (SQLException e) {
             e.printStackTrace();

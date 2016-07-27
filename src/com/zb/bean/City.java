@@ -28,4 +28,12 @@ public class City {
     public String getFirstLetter() {
         return firstLetter;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityName='" + cityName + '\'' +
+                ", firstLetter='" + firstLetter + '\'' +
+                '}';
+    }
 }

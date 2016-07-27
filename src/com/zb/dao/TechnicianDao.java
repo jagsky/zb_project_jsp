@@ -17,7 +17,7 @@ public class TechnicianDao {
     public List<City> queryTechnicianName() throws SQLException {
         List<City> list = new ArrayList<City>();
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "select USER_NAME,USER_BASENUMBER, USER_LETTER from TECHNICIAN";
+        String sql = "select USER_NAME,USER_BASENUMBER, USER_LETTER from TECHNICIAN ORDER BY NLSSORT(USER_LETTER,'NLS_SORT = SCHINESE_PINYIN_M')";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
