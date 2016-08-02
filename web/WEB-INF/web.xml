@@ -81,4 +81,13 @@
         <url-pattern>/technician.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>important</servlet-name>
+        <servlet-class>com.zb.servlet.ImportantServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>important</servlet-name>
+        <url-pattern>/important.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>

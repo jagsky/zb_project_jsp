@@ -56,7 +56,7 @@ public class GainServlet extends HttpServlet {
                 json.append(line);
             }
         } catch (Exception e) {
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
         return json.toString();
     }

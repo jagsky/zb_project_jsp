@@ -5,9 +5,9 @@ package com.zb.bean;
  * Created by Administrator on 2016/7/29.
  */
 public class ImportantBean {
-    private int id;
+    private String userName;
     private String title;
-    private String data;
+    private String date;
     private String province;
     private String city;
     private String county;
@@ -16,28 +16,32 @@ public class ImportantBean {
     private String contenttype;
     private String content;
 
+
     public ImportantBean() {
     }
 
-    public ImportantBean(int id, String title, String data, String province, String city, String county, String town, String village, String contenttype, String content) {
-        this.id = id;
-        this.title = title;
-        this.data = data;
-        this.province = province;
-        this.city = city;
-        this.county = county;
-        this.town = town;
-        this.village = village;
-        this.contenttype = contenttype;
-        this.content = content;
+    @Override
+    public String toString() {
+        return "ImportantBean{" +
+                "userName='" + userName + '\'' +
+                ", title='" + title + '\'' +
+                ", date='" + date + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", town='" + town + '\'' +
+                ", village='" + village + '\'' +
+                ", contenttype='" + contenttype + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 
-    public int getId() {
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getTitle() {
@@ -48,12 +52,12 @@ public class ImportantBean {
         this.title = title;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getProvince() {
@@ -112,19 +116,17 @@ public class ImportantBean {
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return "ImportantBean{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", data='" + data + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", county='" + county + '\'' +
-                ", town='" + town + '\'' +
-                ", village='" + village + '\'' +
-                ", contenttype='" + contenttype + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+    public ImportantBean(String userName, String title, String date, String province, String city, String county, String town, String village, String contenttype, String content) {
+        this.userName = userName;
+
+        this.title = title;
+        this.date = date;
+        this.province = province;
+        this.city = city;
+        this.county = county;
+        this.town = town;
+        this.village = village;
+        this.contenttype = contenttype;
+        this.content = content;
     }
 }

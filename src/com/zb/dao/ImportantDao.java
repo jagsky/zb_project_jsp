@@ -13,13 +13,22 @@ import java.sql.SQLException;
  * Created by Administrator on 2016/7/29.
  */
 public class ImportantDao {
-    private void selectAllData(ImportantBean importantBean) {
+    public void insertLineData(ImportantBean importantBean) {
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "INSERT INTO IMPORTANT VALUES ()";
+        String sql = "INSERT INTO IMPORTANT VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
+            ps.setString(1, importantBean.getUserName());
+            ps.setString(2, importantBean.getDate());
+            ps.setString(3, importantBean.getProvince());
+            ps.setString(4, importantBean.getCity());
+            ps.setString(5, importantBean.getCounty());
+            ps.setString(6, importantBean.getTown());
+            ps.setString(7, importantBean.getVillage());
+            ps.setString(8, importantBean.getContenttype());
+            ps.setString(9, importantBean.getContent());
+            ps.setString(10, importantBean.getTitle());
         } catch (SQLException e) {
             e.printStackTrace();
         }
