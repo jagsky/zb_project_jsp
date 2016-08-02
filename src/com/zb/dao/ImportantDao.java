@@ -13,10 +13,9 @@ import java.sql.SQLException;
  * Created by Administrator on 2016/7/29.
  */
 public class ImportantDao {
-    private void selectAllData() {
-        ImportantBean importantBean = new ImportantBean();
+    private void selectAllData(ImportantBean importantBean) {
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "";
+        String sql = "INSERT INTO IMPORTANT VALUES ()";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
