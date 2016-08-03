@@ -13,7 +13,6 @@ import java.sql.SQLException;
 public class EverydayDao {
     //插入数据
     public int insertData(EverydayBean everydayBean) {
-        everydayBean = new EverydayBean();
         Connection conn = SqlDataUtil.getConnection();
         String sql = "INSERT INTO TODAYDATA VALUES (?,?,?)";
         try {

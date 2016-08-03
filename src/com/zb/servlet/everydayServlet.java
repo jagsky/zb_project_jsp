@@ -19,11 +19,13 @@ public class EverydayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String register_userName = request.getParameter("register_userName");
         String timeContent = request.getParameter("timeContent");
         String bobyContent = request.getParameter("bobyContent");
         EverydayBean everydayBean = new EverydayBean(register_userName, timeContent, bobyContent);
         EverydayDao everydayDao = new EverydayDao();
+        System.out.println(everydayBean.toString());
         everydayDao.insertData(everydayBean);
 
 
