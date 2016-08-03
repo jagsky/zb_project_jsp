@@ -21,8 +21,8 @@ public class EverydayBean {
         return userName;
     }
 
-    public void setUserName(String userid) {
-        userName = userid;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getTime() {
@@ -39,5 +39,14 @@ public class EverydayBean {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "EverydayBean{" +
+                "userName='" + userName + '\'' +
+                ", time='" + time + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

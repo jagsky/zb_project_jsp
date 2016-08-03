@@ -89,5 +89,12 @@
         <servlet-name>important</servlet-name>
         <url-pattern>/important.do</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>everyday</servlet-name>
+        <servlet-class>com.zb.servlet.EverydayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>everyday</servlet-name>
+        <url-pattern>/everyday.do</url-pattern>
+    </servlet-mapping>
 </web-app>

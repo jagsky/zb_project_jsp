@@ -22,6 +22,7 @@ public class ImportantServlet extends HttpServlet {
         response.setContentType("text/xml");
 
         String jsonStr = readjsonString(request);
+        System.out.println(jsonStr);
         Gson gson = new Gson();
         ImportantBean importantBean = gson.fromJson(jsonStr, ImportantBean.class);
         ImportantDao importantDao = new ImportantDao();

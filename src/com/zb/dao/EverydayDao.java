@@ -18,6 +18,7 @@ public class EverydayDao {
         String sql = "INSERT INTO TODAYDATA VALUES (?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
+            System.out.println(everydayBean.getUserName());
             ps.setString(1, everydayBean.getUserName());
             ps.setString(2, everydayBean.getTime());
             ps.setString(3, everydayBean.getContent());

@@ -15,10 +15,9 @@ import java.sql.SQLException;
 public class ImportantDao {
     public void insertLineData(ImportantBean importantBean) {
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "INSERT INTO IMPORTANT VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO IMPORTANT VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
             ps.setString(1, importantBean.getUserName());
             ps.setString(2, importantBean.getDate());
             ps.setString(3, importantBean.getProvince());
@@ -29,6 +28,7 @@ public class ImportantDao {
             ps.setString(8, importantBean.getContenttype());
             ps.setString(9, importantBean.getContent());
             ps.setString(10, importantBean.getTitle());
+            ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
