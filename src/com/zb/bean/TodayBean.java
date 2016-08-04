@@ -4,7 +4,7 @@ package com.zb.bean;
  * Created by Administrator on 2016/8/4.
  */
 public class TodayBean {
-    private String userName;
+    private String id;
     private String time;
     private String content;
     private String date;
@@ -12,19 +12,19 @@ public class TodayBean {
     public TodayBean() {
     }
 
-    public TodayBean(String userName, String time, String content, String date) {
-        this.userName = userName;
+    public TodayBean(String id, String time, String content, String date) {
+        this.id = id;
         this.time = time;
         this.content = content;
         this.date = date;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTime() {
@@ -54,7 +54,7 @@ public class TodayBean {
     @Override
     public String toString() {
         return "TodayBean{" +
-                "userName='" + userName + '\'' +
+                "id='" + id + '\'' +
                 ", time='" + time + '\'' +
                 ", content='" + content + '\'' +
                 ", date='" + date + '\'' +

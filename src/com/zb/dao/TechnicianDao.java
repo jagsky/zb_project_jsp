@@ -14,6 +14,7 @@ import java.util.List;
  * Created by Administrator on 2016/7/18.
  */
 public class TechnicianDao {
+    //查询所有技术员的数据
     public List<City> queryTechnicianName() throws SQLException {
         List<City> list = new ArrayList<City>();
         Connection conn = SqlDataUtil.getConnection();
@@ -29,6 +30,27 @@ public class TechnicianDao {
         SqlDataUtil.close(conn, ps, rs);
         return list;
 
+    }
+
+    //通过ID查询技术员的姓名
+    public static String queryIdToUserName(String id) {
+        String userName = null;
+        Connection conn = SqlDataUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT USER_NAME FROM TECHNICIAN WHERE USER_ID = ?";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                userName = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userName;
     }
 
 }
