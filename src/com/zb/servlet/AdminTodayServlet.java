@@ -8,15 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2016/8/4.
+ * 作用：管理员每日查看
+ * Created by Administrator on 2016/8/5.
+ *
  */
-@WebServlet(name = "Admin_Today_Servlet")
-public class Admin_Today_Servlet extends HttpServlet {
+@WebServlet(name = "AdminTodayServlet")
+public class AdminTodayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            response.getWriter().print("xxxxxx");
     }
 }

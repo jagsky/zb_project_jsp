@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
+ * //用于员工发送每一天
  * Created by Administrator on 2016/7/25.
  */
 @WebServlet(name = "EverydayServlet")

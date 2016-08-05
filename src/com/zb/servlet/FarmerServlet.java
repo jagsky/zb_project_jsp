@@ -19,6 +19,7 @@ import java.util.List;
 @WebServlet(name = "FarmerServlet")
 public class FarmerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 

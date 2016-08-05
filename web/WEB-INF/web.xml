@@ -97,4 +97,13 @@
         <servlet-name>everyday</servlet-name>
         <url-pattern>/everyday.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminToday1</servlet-name>
+        <servlet-class>com.zb.servlet.AdminTodayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminToday1</servlet-name>
+        <url-pattern>/adminToday1.do</url-pattern>
+    </servlet-mapping>
 </web-app>
