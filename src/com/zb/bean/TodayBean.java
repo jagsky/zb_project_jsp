@@ -7,16 +7,14 @@ public class TodayBean {
     private String id;
     private String time;
     private String content;
-    private String date;
 
     public TodayBean() {
     }
 
-    public TodayBean(String id, String time, String content, String date) {
+    public TodayBean(String id, String time, String content) {
         this.id = id;
         this.time = time;
         this.content = content;
-        this.date = date;
     }
 
     public String getId() {
@@ -43,21 +41,12 @@ public class TodayBean {
         this.content = content;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
         return "TodayBean{" +
                 "id='" + id + '\'' +
                 ", time='" + time + '\'' +
                 ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
                 '}';
     }
 }

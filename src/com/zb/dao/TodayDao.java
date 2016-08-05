@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +44,7 @@ public class TodayDao {
         Date parse = null;
         try {
             parse = df.parse(date);
+            System.out.println(parse.getTime()+"parse.getTime()");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -66,7 +66,6 @@ public class TodayDao {
                 todayBean.setId(rs.getString(1));
                 todayBean.setTime(rs.getString(2));
                 todayBean.setContent(rs.getString(3));
-                todayBean.setDate(rs.getString(4));
                 beanList.add(todayBean);
             }
         } catch (SQLException e) {

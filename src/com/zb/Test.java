@@ -22,6 +22,9 @@ public class Test {
         System.out.println(dateFormat.toString());
         List<TodayBean> beanList = todayDao.queryTodayData(dateFormat.toString());
         System.out.println(beanList.toString());*/
+        TodayDao todayDao = new TodayDao();
+        List<TodayBean> beanList = todayDao.queryTodayData("2016-08-05");
+        System.out.println(beanList.toString());
     }
 
 }
