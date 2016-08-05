@@ -106,4 +106,13 @@
         <servlet-name>adminToday1</servlet-name>
         <url-pattern>/adminToday1.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminImportantServlet</servlet-name>
+        <servlet-class>com.zb.servlet.AdminImportantServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminImportantServlet</servlet-name>
+        <url-pattern>/adminimportant.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>
