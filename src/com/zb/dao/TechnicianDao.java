@@ -14,6 +14,17 @@ import java.util.List;
  * Created by Administrator on 2016/7/18.
  */
 public class TechnicianDao {
+    private String id;
+    private String password;
+
+    public TechnicianDao() {
+    }
+
+    public TechnicianDao(String id, String password) {
+        this.id = id;
+        this.password = password;
+    }
+
     //查询所有技术员的数据
     public List<City> queryTechnicianName() throws SQLException {
         List<City> list = new ArrayList<City>();
@@ -51,6 +62,84 @@ public class TechnicianDao {
         }
 
         return userName;
+    }
+
+
+    //1.查询此ID是否存在
+    public boolean queryId() {
+        boolean next = false;
+        Connection conn = SqlDataUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT USER_ID FROM TECHNICIAN WHERE USER_ID=? ";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            next = rs.next();
+            System.out.println("next" + next);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SqlDataUtil.close(conn, ps, rs);
+        return next;
+    }
+
+    //2.如果id存在则判断密码
+    public boolean queryPassword() {
+        boolean ispassword = false;
+        Connection conn = SqlDataUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT USER_PSD FROM TECHNICIAN WHERE USER_ID=? ";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            boolean next = rs.next();
+
+            if (next) {
+
+                String password1 = rs.getString(1);
+                System.out.println(password1);
+                //如果返回的数据为空
+                if (password1 == null) {
+                    System.out.println("密码添加成功");
+                    insertPassword();
+                    ispassword = true;
+
+                } else {
+                    boolean equals = password.equals(password1);
+                    if (equals) {
+                        System.out.println("密码正确");
+                        ispassword = true;
+                    } else {
+                        System.out.println("密码错误");
+                        ispassword = false;
+                        System.out.println("");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SqlDataUtil.close(conn, ps, rs);
+        return ispassword;
+    }
+
+    private void insertPassword() {
+        Connection conn = SqlDataUtil.getConnection();
+        PreparedStatement ps = null;
+        String sql = "UPDATE TECHNICIAN SET USER_PSD=? WHERE USER_ID=?";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, password);
+            ps.setString(2, id);
+            ps.execute();
+            System.out.println("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

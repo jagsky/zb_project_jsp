@@ -45,7 +45,6 @@ public class ControllerDao {
     //2.如果存在则开始下一步，查询密码是否存在，如果不存在则将密码添加到数据中，如果存在则判断是否一样
     public boolean queryControllerPassword() {
         boolean ispassword = false;
-        boolean isOk = false;
         String password1 = null;
         Connection conn = SqlDataUtil.getConnection();
         PreparedStatement ps = null;
@@ -64,16 +63,19 @@ public class ControllerDao {
                 if (password1 == null) {
                     System.out.println("密码添加成功");
                     insertPassword();
+                    ispassword = true;
+
                 } else {
                     boolean equals = password.equals(password1);
                     if (equals) {
                         System.out.println("密码正确");
+                        ispassword = true;
                     } else {
                         System.out.println("密码错误");
+                        ispassword = false;
                     }
                     //如果不存在则添加数据到数据库
                 }
-
             }
 
 

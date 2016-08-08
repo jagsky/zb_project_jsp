@@ -16,9 +16,9 @@ import java.util.logging.SimpleFormatter;
  */
 public class Test {
     public static void main(String[] args) throws SQLException {
-        ControllerDao controllerDao = new ControllerDao("17092044924","a13456789","dasda");
-        boolean b = controllerDao.queryControllerId();
-        System.out.println(b);
+       /* TechnicianDao technicianDao = new TechnicianDao("123123","aqeq1w");
+        boolean b = technicianDao.queryId();*/
+        ControllerDao controllerDao =  new ControllerDao("13875630138","12312312312312","sssss");
         controllerDao.queryControllerPassword();
     }
 
