@@ -11,12 +11,12 @@ import java.sql.SQLException;
  * Created by Administrator on 2016/7/8.
  */
 public class UserDao {
-    //查询身份证是否存在
-    public boolean queryIdCard(String idCard) throws SQLException {
+    //查询此id是否存在？
+    public boolean queryIdCard(String id) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
         String sql = "SELECT USER_IDCARD FROM TECHNICIAN WHERE USER_IDCARD=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, idCard);
+        ps.setString(1, id);
         ResultSet rs = ps.executeQuery();
         boolean s = rs.next();
         SqlDataUtil.close(conn, ps, rs);
