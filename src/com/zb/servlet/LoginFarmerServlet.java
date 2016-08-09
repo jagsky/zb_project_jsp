@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * //技术员登入后返回农户的信息
  * Created by Administrator on 2016/7/13.
  */
 @WebServlet(name = "LoginFarmerServlet")

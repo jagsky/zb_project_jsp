@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * //作用：用于技术员登入后，后台访问此服务，返回farmer数据
  * Created by Administrator on 2016/7/12.
  */
 @WebServlet(name = "FarmerServlet")

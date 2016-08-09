@@ -19,7 +19,7 @@ public class FarmerDao {
     public List<FarmerBean> queryDK(String userIdCard) throws SQLException {
         List<FarmerBean> list = new ArrayList<FarmerBean>();
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "select * from Farmer where USER_IDCARD =?";
+        String sql = "select * from Farmer where USER_ID =?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, userIdCard);
         ResultSet rs = ps.executeQuery();

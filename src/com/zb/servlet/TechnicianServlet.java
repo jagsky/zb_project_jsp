@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
+ * //查询技术员姓名
  * Created by Administrator on 2016/7/18.
  */
 @WebServlet(name = "TechnicianServlet")
