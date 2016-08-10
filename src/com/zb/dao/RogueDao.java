@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * //去杂表 操作类
  * Created by Administrator on 2016/7/6.
  */
 public class RogueDao {
@@ -27,13 +28,14 @@ public class RogueDao {
     //插入一行数据
     //如果返回的是false表示无此数据，则添加数据
     public boolean insertRogue(RogueBean rogue) throws SQLException {
+        String userName = TechnicianDao.queryIdToUserName(rogue.getUserId());
         // insert into table1(field1,field2) values(value1,value2)
         Connection conn = SqlDataUtil.getConnection();
         //(USER_ID,FARMERNAME,DKNUMBER,TYPES,ROGUE_TIME,ROGUE_ROWFATHER,ROGUE_ROWMOTHERS,ROGUE_LINEWIDTH," +
         // "ROGUE_LINERATIO,ROGUE_COMEOUTFATHER,ROGUE_CONMEOUTMOTHER,ROGUE_IMPURTIES,ROGUE_FERTILITY,ROGUE_BEIZHU)
         String sql = "INSERT INTO ROGUE (USER_ID,FARMERNAME,DKNUMBER,TYPES,ROGUE_TIME,ROGUE_ROWFATHER,ROGUE_ROWMOTHERS,ROGUE_LINEWIDTH," +
                 "ROGUE_LINERATIO,ROGUE_COMEOUTFATHER,ROGUE_CONMEOUTMOTHER,ROGUE_IMPURTIES,ROGUE_FERTILITY,ROGUE_BEIZHU) VALUES ('"
-                + rogue.getUserId() + "','" + rogue.getFramarName() + "','" + rogue.getdKNumber() + "','" + rogue.getType() + "','"
+                + userName + "','" + rogue.getFramarName() + "','" + rogue.getdKNumber() + "','" + rogue.getType() + "','"
                 + rogue.getTime() + "','" + rogue.getRowFather() + "','" + rogue.getRowMothers() + "','" + rogue.getLineWidth() + "','"
                 + rogue.getLineRatio() + "','" + rogue.getComeOutFather() + "','" + rogue.getConmeOutMother() + "','" + rogue.getImpurties() + "','" +
                 rogue.getFertility() + "','" + rogue.getBeiZhu() + "')";

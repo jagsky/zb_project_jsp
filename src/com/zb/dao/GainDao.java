@@ -26,9 +26,10 @@ public class GainDao {
 
     public boolean insertGain(GainBean gain) throws SQLException {
         Connection conn = SqlDataUtil.getConnection();
+        String userName = TechnicianDao.queryIdToUserName(gain.getUserId());
         String sql = "INSERT INTO GAIN VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, gain.getUserId());
+        ps.setString(1, userName);
         ps.setString(2, gain.getFramarName());
         ps.setString(3, gain.getDKNumber());
         ps.setString(4, gain.getType());

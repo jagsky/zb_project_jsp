@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * //操作Seed表的工具类
  * Created by Administrator on 2016/7/6.
  */
 public class SeedDao {
@@ -29,10 +30,10 @@ public class SeedDao {
     public boolean insertSeed(SeedBean seed) throws SQLException {
         // insert into table1(field1,field2) values(value1,value2)
         Connection conn = SqlDataUtil.getConnection();
-
+        String userName = TechnicianDao.queryIdToUserName(seed.getUserId());
         String sql = "INSERT INTO SEED(USER_ID,FARMERNAME,DKNUMBER,TYPES,SEED_TIME,SEED_FATHER1,SEED_FATHER2,SEED_MOTHER," +
                 "SEED_FATHERUSE,SEED_MOTHERUSE,SEED_BEUZHU) VALUES ('" +
-                seed.getUserId() + "','" + seed.getFramarName() + "','" + seed.getDKNumber() + "','" + seed.getType() + "','"
+                userName + "','" + seed.getFramarName() + "','" + seed.getDKNumber() + "','" + seed.getType() + "','"
                 + seed.getSeedDate() + "','" + seed.getFather1() + "','" + seed.getFather2() + "','" + seed.getMother() + "','"
                 + seed.getFatherUse() + "','" + seed.getMotherUse() + "','" + seed.getBeizhu() + "')";
         PreparedStatement ps = conn.prepareStatement(sql);

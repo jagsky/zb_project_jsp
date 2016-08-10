@@ -14,29 +14,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * //作用：返回管理员要查询的对于日期的   日常信息
  * Created by Administrator on 2016/8/4.
  */
 public class TodayDao {
-
-    //添加技术员发过来的每日信息，记得把发过来的ID去技术员表中修改成名字添加进去
-    public void insertTodayData(TodayBean todayBean) {
-        String userName = TechnicianDao.queryIdToUserName(todayBean.getId());
-        Connection conn = SqlDataUtil.getConnection();
-        PreparedStatement ps;
-        String sql = "INSERT INTO VALUES (?,?,?,?)";
-        try {
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, userName);
-            ps.setString(2, todayBean.getTime());
-            ps.setString(3, todayBean.getContent());
-            ps.setDate(4, new java.sql.Date(new Date().getTime()));
-            ps.execute();
-            SqlDataUtil.close(conn, ps);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     //获取特定日期的数据
     public List<TodayBean> queryTodayData(String date) {
@@ -44,7 +25,7 @@ public class TodayDao {
         Date parse = null;
         try {
             parse = df.parse(date);
-            System.out.println(parse.getTime()+"parse.getTime()");
+            System.out.println(parse.getTime() + "parse.getTime()");
         } catch (ParseException e) {
             e.printStackTrace();
         }

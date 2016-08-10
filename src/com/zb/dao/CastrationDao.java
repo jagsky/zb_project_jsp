@@ -25,10 +25,11 @@ public class CastrationDao {
     }
 
     public boolean insertCastration(CastrationBean castration) throws SQLException {
+        String userName = TechnicianDao.queryIdToUserName(castration.getUserId());
         Connection conn = SqlDataUtil.getConnection();
         String sql = "INSERT INTO CASTRATION VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, castration.getUserId());
+        ps.setString(1, userName);
         ps.setString(2, castration.getFramarName());
         ps.setString(3, castration.getDKNumber());
         ps.setString(4, castration.getType());

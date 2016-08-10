@@ -24,13 +24,14 @@ public class FarmerServlet extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
-        String userIdCard = request.getParameter("idCard");
-        System.out.println(userIdCard);
+        String userName = request.getParameter("userName");
+        System.out.println(userName);
         Gson gson = new Gson();
         FarmerDao farmerDao = new FarmerDao();
         try {
-            List<FarmerBean> list = farmerDao.queryDK(userIdCard);
+            List<FarmerBean> list = farmerDao.queryDK(userName);
             String jsonStr = gson.toJson(list);
+            System.out.println("技术员要接收农户的基本信息为：" + jsonStr);
             response.getWriter().print(jsonStr);
 
         } catch (SQLException e) {

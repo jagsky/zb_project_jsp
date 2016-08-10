@@ -12,16 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 作用：技术员登入后，返回农户的基本信息   以及添加农户信息
  * Created by Administrator on 2016/7/5.
  */
 public class FarmerDao {
     //通过UserID查询，返回农户的基本信息
-    public List<FarmerBean> queryDK(String userIdCard) throws SQLException {
+    public List<FarmerBean> queryDK(String userName) throws SQLException {
         List<FarmerBean> list = new ArrayList<FarmerBean>();
         Connection conn = SqlDataUtil.getConnection();
-        String sql = "select * from Farmer where USER_ID =?";
+        String sql = "select * from Farmer where USER_ID =? ORDER BY NLSSORT(USER_LETTER,'NLS_SORT = SCHINESE_PINYIN_M') ";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, userIdCard);
+        ps.setString(1, userName);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             FarmerBean farmerBean = new FarmerBean();
@@ -37,6 +38,7 @@ public class FarmerDao {
             farmerBean.setFarmer_troopsname(rs.getString(11));
             farmerBean.setFarmer_yield(rs.getString(12));
             farmerBean.setFarmer_area(rs.getString(13));
+            farmerBean.setFarmer_letter(rs.getString(14));
             list.add(farmerBean);
         }
 

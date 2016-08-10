@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * 作用：在数据库中查询管理员的ID 密码是否正确
  * Created by Administrator on 2016/8/8.
  */
 public class ControllerDao {

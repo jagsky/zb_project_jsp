@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * 作用：从数据库中提取数据，判断技术员的ID 密码是否正确
  * Created by Administrator on 2016/7/8.
  */
 public class UserDao {

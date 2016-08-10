@@ -14,11 +14,12 @@ import java.sql.SQLException;
  */
 public class ImportantDao {
     public void insertLineData(ImportantBean importantBean) {
+        String userName = TechnicianDao.queryIdToUserName(importantBean.getUserName());
         Connection conn = SqlDataUtil.getConnection();
         String sql = "INSERT INTO IMPORTANT VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, importantBean.getUserName());
+            ps.setString(1, userName);
             ps.setString(2, importantBean.getDate());
             ps.setString(3, importantBean.getProvince());
             ps.setString(4, importantBean.getCity());
