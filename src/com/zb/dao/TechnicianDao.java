@@ -34,7 +34,8 @@ public class TechnicianDao {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             City technicianBean = new City();
-            technicianBean.setCityName(rs.getString(1));
+            technicianBean.setCityName(rs.getString(1) + "[" + rs.getString(2) + "]");
+
             technicianBean.setFirstLetter(rs.getString(3));
             list.add(technicianBean);
         }
