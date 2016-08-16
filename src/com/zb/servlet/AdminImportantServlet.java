@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 作用：返回重要事情上报
  * Created by Administrator on 2016/8/5.
  */
 @WebServlet(name = "AdminImportantServlet")

@@ -25,7 +25,7 @@ public class TechnicianDao {
         this.password = password;
     }
 
-    //查询所有技术员的数据
+    //查询所有技术员 USER_NAME,USER_BASENUMBER, USER_LETTER这三列数据数据
     public List<City> queryTechnicianName() throws SQLException {
         List<City> list = new ArrayList<City>();
         Connection conn = SqlDataUtil.getConnection();
@@ -35,7 +35,6 @@ public class TechnicianDao {
         while (rs.next()) {
             City technicianBean = new City();
             technicianBean.setCityName(rs.getString(1) + "[" + rs.getString(2) + "]");
-
             technicianBean.setFirstLetter(rs.getString(3));
             list.add(technicianBean);
         }
@@ -143,5 +142,17 @@ public class TechnicianDao {
         }
     }
 
+    public void insertData() {
+        Connection conn = SqlDataUtil.getConnection();
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO TECHNICIAN VALUES(?,?,?,?,?,?)";
+        try {
+            ps = conn.prepareStatement(sql);
 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
