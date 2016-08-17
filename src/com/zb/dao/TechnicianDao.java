@@ -1,6 +1,7 @@
 package com.zb.dao;
 
 import com.zb.bean.City;
+import com.zb.bean.Technician;
 import com.zb.sql.SqlDataUtil;
 
 import java.sql.Connection;
@@ -142,17 +143,48 @@ public class TechnicianDao {
         }
     }
 
-    public void insertData() {
+    public void insertData(Technician technician) {
         Connection conn = SqlDataUtil.getConnection();
         PreparedStatement ps = null;
         String sql = "INSERT INTO TECHNICIAN VALUES(?,?,?,?,?,?)";
         try {
             ps = conn.prepareStatement(sql);
-
+            ps.setString(1, technician.getUserName());
+            ps.setString(2, technician.getUserid());
+            ps.setString(3, technician.getPad());
+            ps.setString(4, technician.getBaseMunber());
+            ps.setString(5, technician.getAt());
+            ps.setString(6, technician.getLt());
+            ps.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        SqlDataUtil.close(conn, ps);
+    }
 
+    //通过对应的技术员姓名与基地号查询对应的UserId
+    public String queryUserId(String userName, String baseNumber) {
+
+        String userId = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        //SELECT USER_PSD FROM TECHNICIAN WHERE
+        String sql = "SELECT USER_ID FROM TECHNICIAN WHERE USER_NAME=? AND USER_BASENUMBER=?";
+        conn = SqlDataUtil.getConnection();
+        try {
+            ps = conn.prepareCall(sql);
+            ps.setString(1, userName);
+            ps.setString(2, baseNumber);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                userId = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userId;
     }
 }

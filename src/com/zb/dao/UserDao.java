@@ -51,12 +51,12 @@ public class UserDao {
     }
 
     //通过id查询idcard
-    public String idQueryidCard(String userName) throws SQLException {
+    public String idQueryidCard(String Userid) throws SQLException {
         String idCard = null;
         Connection conn = SqlDataUtil.getConnection();
         String sql = "SELECT USER_IDCARD FROM TECHNICIAN WHERE USER_ID=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, userName);
+        ps.setString(1, Userid);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             idCard = rs.getString(1);
