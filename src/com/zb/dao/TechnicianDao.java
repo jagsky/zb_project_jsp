@@ -184,7 +184,7 @@ public class TechnicianDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        SqlDataUtil.close(conn,ps,rs);
         return userId;
     }
 }

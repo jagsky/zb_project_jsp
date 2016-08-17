@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * //操作Seed表的工具类
@@ -62,6 +64,40 @@ public class SeedDao {
         SqlDataUtil.close(conn, ps);
         return i;
 
+    }
+
+    //通过UserId查询此技术员应有的记录
+    public List<SeedBean> querySeed(String userId) {
+        List<SeedBean> seedBeanList = new ArrayList<SeedBean>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM SEED WHERE USER_ID=? ";
+        conn = SqlDataUtil.getConnection();
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, userId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                SeedBean seed = new SeedBean();
+                seed.setUserId(rs.getString(1));
+                seed.setFramarName(rs.getString(2));
+                seed.setDKNumber(rs.getString(3));
+                seed.setType(rs.getString(4));
+                seed.setSeedDate(rs.getString(5));
+                seed.setFather1(rs.getString(6));
+                seed.setFather2(rs.getString(7));
+                seed.setMother(rs.getString(8));
+                seed.setFatherUse(rs.getString(9));
+                seed.setMotherUse(rs.getString(10));
+                seed.setBeizhu(rs.getString(11));
+                seedBeanList.add(seed);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return seedBeanList;
     }
 
 
