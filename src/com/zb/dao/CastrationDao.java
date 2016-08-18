@@ -1,12 +1,15 @@
 package com.zb.dao;
 
 import com.zb.bean.CastrationBean;
+import com.zb.bean.SeedBean;
 import com.zb.sql.SqlDataUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/7/6.
@@ -64,5 +67,41 @@ public class CastrationDao {
         int i = ps.executeUpdate();
         SqlDataUtil.close(conn, ps);
         return i;
+    }
+
+    //通过Userid去查询对应表中的情况
+    private  List<CastrationBean> queryCastration(String userId) {
+        List<CastrationBean> castrationBeanList = new ArrayList<CastrationBean>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM CASTRATION WHERE USER_ID=? ";
+        conn = SqlDataUtil.getConnection();
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,userId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                CastrationBean castrationBean = new CastrationBean();
+                castrationBean.setUserId(rs.getString(1));
+                castrationBean.setFramarName(rs.getString(2));
+                castrationBean.setDKNumber(rs.getString(3));
+                castrationBean.setType(rs.getString(4));
+                castrationBean.setStartTime(rs.getString(5));
+                castrationBean.setMotherExtractTime(rs.getString(6));
+                castrationBean.setInspectTime(rs.getString(7));
+                castrationBean.setMotherNoCastration(rs.getString(8));
+                castrationBean.setMotherExtract(rs.getString(9));
+                castrationBean.setMotherLoose(rs.getString(10));
+                castrationBean.setFatherLoose(rs.getString(11));
+                castrationBean.setContent(rs.getString(12));
+                castrationBeanList.add(castrationBean);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SqlDataUtil.close(conn, ps, rs);
+
+        return castrationBeanList;
     }
 }

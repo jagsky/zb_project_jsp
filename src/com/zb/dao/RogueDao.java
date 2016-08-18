@@ -1,5 +1,6 @@
 package com.zb.dao;
 
+import com.zb.bean.CastrationBean;
 import com.zb.bean.RogueBean;
 import com.zb.sql.SqlDataUtil;
 
@@ -7,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * //去杂表 操作类
@@ -72,4 +75,21 @@ public class RogueDao {
 
     }
 
+    public void queryRogue(String userId) {
+        List<RogueBean> castrationBeanList = new ArrayList<RogueBean>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM ROGUE WHERE USER_ID=? ";
+        conn = SqlDataUtil.getConnection();
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,userId);
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

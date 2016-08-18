@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * //管理员查看 对应技术员播种表中的数据
  * Created by Administrator on 2016/8/17.
  */
 @WebServlet(name = "Admin_SeedQueryServlet")
@@ -38,6 +39,9 @@ public class Admin_SeedQueryServlet extends HttpServlet {
         String jsonStr = gson.toJson(seedBeen, listType);
         //发送接送
         response.getWriter().print(jsonStr);
+        System.out.println(technician +"xxxx"+baseNumber);
+        System.out.println(userId);
+        System.out.println(jsonStr);
 
 
 

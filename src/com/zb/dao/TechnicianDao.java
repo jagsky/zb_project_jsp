@@ -180,11 +180,12 @@ public class TechnicianDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 userId = rs.getString(1);
+                System.out.println("这是UserId" + userId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SqlDataUtil.close(conn,ps,rs);
+        SqlDataUtil.close(conn, ps, rs);
         return userId;
     }
 }
