@@ -75,8 +75,8 @@ public class RogueDao {
 
     }
 
-    public void queryRogue(String userId) {
-        List<RogueBean> castrationBeanList = new ArrayList<RogueBean>();
+    public List<RogueBean> queryRogue(String userId) {
+        List<RogueBean> rogueBeanList = new ArrayList<RogueBean>();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -84,12 +84,30 @@ public class RogueDao {
         conn = SqlDataUtil.getConnection();
         try {
             ps = conn.prepareStatement(sql);
-            ps.setString(1,userId);
+            ps.setString(1, userId);
             rs = ps.executeQuery();
+            while (rs.next()) {
+                RogueBean rogueBean = new RogueBean();
+                rogueBean.setUserId(rs.getString(1));
+                rogueBean.setFramarName(rs.getString(2));
+                rogueBean.setdKNumber(rs.getString(3));
+                rogueBean.setType(rs.getString(4));
+                rogueBean.setTime(rs.getString(5));
+                rogueBean.setRowFather(rs.getString(6));
+                rogueBean.setRowMothers(rs.getString(7));
+                rogueBean.setLineWidth(rs.getString(8));
+                rogueBean.setLineRatio(rs.getString(9));
+                rogueBean.setComeOutFather(rs.getString(10));
+                rogueBean.setConmeOutMother(rs.getString(11));
+                rogueBean.setImpurties(rs.getString(12));
+                rogueBean.setFertility(rs.getString(13));
+                rogueBean.setBeiZhu(rs.getString(14));
+                rogueBeanList.add(rogueBean);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
+        return rogueBeanList;
     }
 }

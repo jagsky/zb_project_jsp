@@ -70,7 +70,7 @@ public class CastrationDao {
     }
 
     //通过Userid去查询对应表中的情况
-    private  List<CastrationBean> queryCastration(String userId) {
+    public   List<CastrationBean> queryCastration(String userId) {
         List<CastrationBean> castrationBeanList = new ArrayList<CastrationBean>();
         Connection conn = null;
         PreparedStatement ps = null;

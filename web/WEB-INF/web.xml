@@ -123,5 +123,31 @@
         <servlet-name>Admin_SeedQueryServlet</servlet-name>
         <url-pattern>/adminseed.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Admin_CastrationQueryServlet</servlet-name>
+        <servlet-class>com.zb.servlet.Admin_CastrationQueryServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>Admin_CastrationQueryServlet</servlet-name>
+        <url-pattern>/adminCastration.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Admin_RogueQueryServlet</servlet-name>
+        <servlet-class>com.zb.servlet.Admin_RogueQueryServlet</servlet-class>
+    </servlet>
+<servlet-mapping>
+    <servlet-name>Admin_RogueQueryServlet</servlet-name>
+    <url-pattern>/adminRogue.do</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+        <servlet-name>Admin_GainQueryServlet</servlet-name>
+        <servlet-class>com.zb.servlet.Admin_GainQueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin_GainQueryServlet</servlet-name>
+        <url-pattern>/adminGain.do</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,5 +1,6 @@
 package com.zb.dao;
 
+import com.zb.bean.CastrationBean;
 import com.zb.bean.GainBean;
 import com.zb.sql.SqlDataUtil;
 
@@ -7,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/7/6.
@@ -65,4 +68,41 @@ public class GainDao {
         SqlDataUtil.close(conn, ps);
         return i;
     }
+
+    public List<GainBean> queryGain(String userId) {
+        List<GainBean> gainBeanList = new ArrayList<GainBean>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM GAIN WHERE USER_ID=? ";
+        conn = SqlDataUtil.getConnection();
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, userId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                GainBean gainBean = new GainBean();
+                gainBean.setUserId(rs.getString(1));
+                gainBean.setFramarName(rs.getString(2));
+                gainBean.setDKNumber(rs.getString(3));
+                gainBean.setType(rs.getString(4));
+                gainBean.setMotherNO(rs.getString(5));
+                gainBean.setSinglePlant(rs.getString(6));
+                gainBean.setThousand(rs.getString(7));
+                gainBean.setFatherExciseStart(rs.getString(8));
+                gainBean.setFatherExciseStop(rs.getString(9));
+                gainBean.setGainTime(rs.getString(10));
+                gainBean.setGainOutput(rs.getString(11));
+                gainBean.setBeizhu(rs.getString(12));
+                gainBeanList.add(gainBean);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SqlDataUtil.close(conn, ps, rs);
+        return gainBeanList;
+    }
+
+
 }
