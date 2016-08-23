@@ -2,7 +2,6 @@ package com.zb.servlet;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.zb.bean.ImportantBean;
 import com.zb.bean.ImportantTitleBean;
 import com.zb.dao.ImportantDao;
 
@@ -17,25 +16,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 作用：返回重要事情上报
- * Created by Administrator on 2016/8/5.
+ * Created by Administrator on 2016/8/23.
  */
-@WebServlet(name = "AdminImportantServlet")
-public class AdminImportantServlet extends HttpServlet {
+@WebServlet(name = "Admin_ImportantTitleServlet")
+public class Admin_ImportantTitleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
-        ImportantBean importantBean = new ImportantBean();
         ImportantDao importantDao = new ImportantDao();
-        List<ImportantBean> importantBeen = importantDao.queryImportant();
+        List<ImportantTitleBean> importantBeen = importantDao.queryImportantTitle();
+        // System.out.println(importantBeen.toString());
         Gson gson = new Gson();
-        Type type = new TypeToken<LinkedList<ImportantBean>>() {
+        Type type = new TypeToken<LinkedList<ImportantTitleBean>>() {
         }.getType();
-        String s = gson.toJson(importantBeen, type);
-        response.getWriter().print(s);
-
-
+        String jsonStr = gson.toJson(importantBeen, type);
+        response.getWriter().print(jsonStr);
+        System.out.println(jsonStr);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
