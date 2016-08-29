@@ -137,10 +137,10 @@
         <servlet-name>Admin_RogueQueryServlet</servlet-name>
         <servlet-class>com.zb.servlet.Admin_RogueQueryServlet</servlet-class>
     </servlet>
-<servlet-mapping>
-    <servlet-name>Admin_RogueQueryServlet</servlet-name>
-    <url-pattern>/adminRogue.do</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_RogueQueryServlet</servlet-name>
+        <url-pattern>/adminRogue.do</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>Admin_GainQueryServlet</servlet-name>
@@ -158,5 +158,14 @@
     <servlet-mapping>
         <servlet-name>Admin_ImportantTitleServlet</servlet-name>
         <url-pattern>/adminimportanttitle.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FanGuiServlet</servlet-name>
+        <servlet-class>com.zb.servlet.FanGuiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FanGuiServlet</servlet-name>
+        <url-pattern>/fangui.do</url-pattern>
     </servlet-mapping>
 </web-app>
